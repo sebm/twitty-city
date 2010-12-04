@@ -1,3 +1,14 @@
 cron:
 - description: grab oxford tweets
-  url: 
+  url: /grabtweets?place=Oxford
+  schedule: every 5 minutes
+- description: grab london tweets
+  url: /grabtweets?place=London
+  schedule: every 5 minutes
+- description: grab margate tweets
+  url: /grabtweets?place=Margate
+  schedule: every 5 minutes
+- description: grab nyc tweets
+  url: /grabtweets?place=NYC
+  schedule: every 5 minutes
+  

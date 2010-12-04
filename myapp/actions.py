@@ -12,6 +12,7 @@ from google.appengine.ext import webapp
 from django.utils import simplejson as json
 from models import *
 from GrabTweetsHandler import *
+from GrabAnalysisHandler import *
 
 class IndexHandler(webapp.RequestHandler):
 	def get(self):
@@ -27,6 +28,3 @@ class FooHandler(webapp.RequestHandler):
 		logging.debug("start of handler")
 		
 		
-class GetAnalysisHandler(webapp.RequestHandler):
-	def get(self):
-		self.response.out.write("HOOO")

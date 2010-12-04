@@ -6,3 +6,7 @@ class Tweet(db.Model):
 		tweet_content = db.StringProperty(required=True, multiline=True)
 		place = db.StringProperty()
 		created_at = db.DateTimeProperty()
+		
+class Analysis(db.Model):
+		start_time = db.DateTimeProperty()
+		end_time = db.DateTimeProperty()

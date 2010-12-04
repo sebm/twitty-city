@@ -9,7 +9,7 @@ from datetime import datetime
 class GrabTweetsHandler(webapp.RequestHandler):
 	def get(self):
 		self.response.headers["Content-Type"] = "text/plain"
-		pagename = 'NULL'
+
 		myplace = self.request.get('place')
 		
 		if myplace == 'Oxford':
