@@ -22,7 +22,7 @@ class GrabAnalysisHandler(webapp.RequestHandler):
 		self.response.headers["Content-Type"] = "text/plain"
 
 		myplace = self.request.get('place')
-		places = ['Oxford', 'London', 'NYC', 'Margate']
+		places = ['Oxford', 'London', 'NYC', 'Margate', 'Toronto']
 		
 		if not myplace in places:
 			self.response.out.write("Please provide a 'place' parameter: Oxford, London, NYC or Margate.")

@@ -10,6 +10,12 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
+- kind: Analysis
+  properties:
+  - name: place
+  - name: created_at
+    direction: desc
+
 - kind: Tweet
   properties:
   - name: place

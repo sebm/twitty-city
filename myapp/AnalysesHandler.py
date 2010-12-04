@@ -14,8 +14,20 @@ from google.appengine.ext import webapp
 from django.utils import simplejson as json
 from models import *
 
-class AnalysesHandler(webapp.RequestHandler):
-	def get(self):
-		myplace = self.request.get('place')
-		
-		
+class AnalysesHandler():
+	def getAnalysis(self, myplace):		
+		latest_analysis = Analysis.gql("WHERE place = :place ORDER BY created_at DESC LIMIT 1",
+												place=myplace
+											)
+		return(latest_analysis[0].avg_sentiment)
+	def getImage(self, myscore):
+		if myscore < 2.2:
+			return "1.png"
+		elif myscore < 2.4:
+			return "2.png"
+		elif myscore < 2.6:
+			return "3.png"
+		elif myscore < 2.8:
+			return "4.png"
+		else:
+			return "5.png"

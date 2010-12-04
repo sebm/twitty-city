@@ -14,13 +14,13 @@ cron:
   
 - description: grab oxford sentiment
   url: /grabanalysis?place=Oxford
-  schedule: every 30 minutes
+  schedule: every 5 minutes
 - description: grab london sentiment
   url: /grabanalysis?place=London
-  schedule: every 30 minutes
+  schedule: every 5 minutes
 - description: grab margate sentiment
   url: /grabanalysis?place=Margate
-  schedule: every 30 minutes
+  schedule: every 5 minutes
 - description: grab nyc sentiment
   url: /grabanalysis?place=NYC
-  schedule: every 30 minutes
+  schedule: every 5 minutes

@@ -1,0 +1,20 @@
+body {
+	background-color: #f7f7f7;
+	color: #000;
+	font-family: Helvetica, Arial;
+}
+
+#container {
+	width: 1000px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.sentiment_block {
+	width: 200px;
+	float:left;
+}
+
+.sentiment_block {
+	font-size: 1em;
+}
