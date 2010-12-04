@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 import logging
 import time
 import json
+import csv 
 
 from email.utils import parsedate_tz, mktime_tz
 from google.appengine.api import urlfetch
@@ -16,7 +17,7 @@ class GrabAnalysisHandler(webapp.RequestHandler):
 	def get(self):
 
 		bulk_analysis_url = 'http://twittersentiment.appspot.com/api/bulkClassify'
-		
+
 		self.response.headers["Content-Type"] = "text/plain"
 
 		myplace = self.request.get('place')
@@ -31,9 +32,23 @@ class GrabAnalysisHandler(webapp.RequestHandler):
 													place=myplace, after=one_hour_ago )
 
 			if tweets.count() > 0:
+				number_of_tweets = tweets.count()
 				an_hour_of_tweets = ''
 				for t in tweets:
 					an_hour_of_tweets += t.tweet_content + '\n'
-					
+				
 				self.response.out.write(an_hour_of_tweets)
 				
+				f = urlfetch.fetch(url=bulk_analysis_url, method='POST', payload=an_hour_of_tweets)
+
+				if not f.status_code == 200:
+					self.response.out.write("Couldn't successfully access the sentiment API")
+				else:
+					rows = f.content.split('\n')
+					running_total = 0
+					for row in rows:
+						if not row == '': 
+							score = int(row.split(',')[0].strip('"'))
+							running_total += score
+							
+					self.response.out.write("The running total is %s and there were tweets" % running_total)
