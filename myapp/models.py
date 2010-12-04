@@ -8,5 +8,6 @@ class Tweet(db.Model):
 		created_at = db.DateTimeProperty()
 		
 class Analysis(db.Model):
-		start_time = db.DateTimeProperty()
-		end_time = db.DateTimeProperty()
+		created_at = db.DateTimeProperty(required=True)
+		place = db.StringProperty(required=True)
+		avg_sentiment = db.FloatProperty(required=True)

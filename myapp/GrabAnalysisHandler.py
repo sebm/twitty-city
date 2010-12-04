@@ -4,6 +4,7 @@ import logging
 import time
 import json
 import csv 
+import urllib
 
 from email.utils import parsedate_tz, mktime_tz
 from google.appengine.api import urlfetch
@@ -37,8 +38,8 @@ class GrabAnalysisHandler(webapp.RequestHandler):
 				for t in tweets:
 					an_hour_of_tweets += t.tweet_content + '\n'
 				
-				self.response.out.write(an_hour_of_tweets)
-				
+				an_hour_of_tweets = an_hour_of_tweets.encode('utf8','xmlcharrefreplace')
+				headers = {'Content-Type' : 'text/plain ; charset = utf-8'}
 				f = urlfetch.fetch(url=bulk_analysis_url, method='POST', payload=an_hour_of_tweets)
 
 				if not f.status_code == 200:
@@ -51,4 +52,11 @@ class GrabAnalysisHandler(webapp.RequestHandler):
 							score = int(row.split(',')[0].strip('"'))
 							running_total += score
 							
-					self.response.out.write("The running total is %s and there were tweets" % running_total)
+					avg_sentiment = float(running_total) / number_of_tweets
+
+					self.response.out.write(
+						"The running total is %s and there were %s tweets. The average sentiment is %f" %
+						(running_total, number_of_tweets, avg_sentiment)
+					)
+					analysis = Analysis(created_at=datetime.now(), place=myplace, avg_sentiment=avg_sentiment)
+					analysis.put()
