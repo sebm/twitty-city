@@ -13,6 +13,7 @@ from django.utils import simplejson as json
 from models import *
 from GrabTweetsHandler import *
 from GrabAnalysisHandler import *
+from AnalysesHandler import *
 
 class IndexHandler(webapp.RequestHandler):
 	def get(self):
