@@ -20,8 +20,6 @@ import wsgiref.handlers
 from google.appengine.ext import webapp
 from myapp.actions import *
 
-
-
 application = webapp.WSGIApplication([
 								('/', IndexHandler),
 								('/grabtweets', GrabTweetsHandler),

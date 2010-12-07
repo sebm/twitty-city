@@ -11,7 +11,10 @@ cron:
 - description: grab nyc tweets
   url: /grabtweets?place=NYC
   schedule: every 5 minutes
-  
+- description: grab toronto tweets
+  url: /grabtweets?place=Toronto
+  schedule: every 5 minutes
+
 - description: grab oxford sentiment
   url: /grabanalysis?place=Oxford
   schedule: every 5 minutes
@@ -23,4 +26,7 @@ cron:
   schedule: every 5 minutes
 - description: grab nyc sentiment
   url: /grabanalysis?place=NYC
+  schedule: every 5 minutes
+- description: grab toronto sentiment
+  url: /grabanalysis?place=Toronto
   schedule: every 5 minutes

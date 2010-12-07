@@ -2,9 +2,9 @@ import os
 from datetime import datetime, timedelta
 import logging
 import time
-import json
 import csv 
 import urllib
+import sys
 
 from email.utils import parsedate_tz, mktime_tz
 from google.appengine.api import urlfetch
