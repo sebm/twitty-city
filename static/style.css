@@ -18,3 +18,8 @@ body {
 .sentiment_block {
 	font-size: 1em;
 }
+
+#about {
+	clear: both;
+	padding-top: 50px;
+}
