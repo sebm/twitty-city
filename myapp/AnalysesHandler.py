@@ -20,7 +20,7 @@ class AnalysesHandler():
 												place=myplace
 											)
 		return(latest_analysis[0].avg_sentiment)
-	def getImage(self, myscore):
+	def getImageForScore(self, myscore):
 		if myscore < 2.2:
 			return "1.png"
 		elif myscore < 2.4:

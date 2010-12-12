@@ -24,11 +24,11 @@ class IndexHandler(webapp.RequestHandler):
 			'LondonSentiment': a.getAnalysis('London'), 
 			'NYCSentiment': a.getAnalysis('NYC'), 
 			'MargateSentiment': a.getAnalysis('Margate'), 
-			'TorontoImg': a.getImage(a.getAnalysis('Toronto')), 
-			'OxfordImg': a.getImage(a.getAnalysis('Oxford')), 
-			'LondonImg': a.getImage(a.getAnalysis('London')), 
-			'NYCImg': a.getImage(a.getAnalysis('NYC')), 
-			'MargateImg': a.getImage(a.getAnalysis('Margate')), 
+			'TorontoImg': a.getImageForScore(a.getAnalysis('Toronto')), 
+			'OxfordImg': a.getImageForScore(a.getAnalysis('Oxford')), 
+			'LondonImg': a.getImageForScore(a.getAnalysis('London')), 
+			'NYCImg': a.getImageForScore(a.getAnalysis('NYC')), 
+			'MargateImg': a.getImageForScore(a.getAnalysis('Margate')), 
 			'sitename': "Twitter Sentiment Worldwide"
 		}
 		path = os.path.join(os.path.dirname(__file__) + '/../templates/', 'index.html')
