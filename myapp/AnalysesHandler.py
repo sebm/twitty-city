@@ -43,6 +43,7 @@ class AnalysesHandler():
 
 		return gdatas
 		
+	
 	def runAnalysisForPlace(self, myplace, response):
 		
 		bulk_analysis_url = 'http://twittersentiment.appspot.com/api/bulkClassify'
