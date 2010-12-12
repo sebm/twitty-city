@@ -19,15 +19,11 @@ class IndexHandler(webapp.RequestHandler):
 	def get(self):
 		a = AnalysesHandler()
 
-		analyses_gdata = \
-							a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('Toronto', 7)) + \
-							a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('NYC', 7)) + \
-							a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('London', 7)) + \
-							a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('Margate', 7)) + \
-							a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('Oxford', 7))
+		analyses_gdata = AnalysisGData.gql("ORDER BY created_at DESC LIMIT 0,1")
+		
 							
 		template_values = {
-			'gdata': analyses_gdata,
+			'gdata': analyses_gdata[0].gdatas,
 			'TorontoSentiment': a.getAnalysisForPlace('Toronto'), 
 			'OxfordSentiment': a.getAnalysisForPlace('Oxford'), 
 			'LondonSentiment': a.getAnalysisForPlace('London'), 

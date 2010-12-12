@@ -30,3 +30,7 @@ cron:
 - description: grab toronto sentiment
   url: /grabanalysis?place=Toronto
   schedule: every 5 minutes
+  
+- description: load up the gdatas
+  url: /analysishistory
+  schedule: every day 00:00

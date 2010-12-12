@@ -26,4 +26,8 @@ class AnalysisHistoryHandler(webapp.RequestHandler):
 							a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('London', 7)) + \
 							a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('Margate', 7)) + \
 							a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('Oxford', 7))
-		self.response.out.write(analyses)
+		
+		gdata = AnalysisGData(created_at = datetime.now(), gdatas = analyses)
+		gdata.put()
+		
+		self.response.out.write("Wrote: \n %s \n to db." % analyses)
