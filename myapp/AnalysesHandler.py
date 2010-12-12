@@ -14,8 +14,8 @@ from google.appengine.ext import webapp
 from django.utils import simplejson as json
 from models import *
 
-class AnalysesHandler():
-	def getAnalysis(self, myplace):		
+class AnalysesHandler():	
+	def getAnalysisForPlace(self, myplace):		
 		latest_analysis = Analysis.gql("WHERE place = :place ORDER BY created_at DESC LIMIT 1",
 												place=myplace
 											)

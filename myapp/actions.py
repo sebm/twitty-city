@@ -19,16 +19,16 @@ class IndexHandler(webapp.RequestHandler):
 		a = AnalysesHandler()
 
 		template_values = {
-			'TorontoSentiment': a.getAnalysis('Toronto'), 
-			'OxfordSentiment': a.getAnalysis('Oxford'), 
-			'LondonSentiment': a.getAnalysis('London'), 
-			'NYCSentiment': a.getAnalysis('NYC'), 
-			'MargateSentiment': a.getAnalysis('Margate'), 
-			'TorontoImg': a.getImageForScore(a.getAnalysis('Toronto')), 
-			'OxfordImg': a.getImageForScore(a.getAnalysis('Oxford')), 
-			'LondonImg': a.getImageForScore(a.getAnalysis('London')), 
-			'NYCImg': a.getImageForScore(a.getAnalysis('NYC')), 
-			'MargateImg': a.getImageForScore(a.getAnalysis('Margate')), 
+			'TorontoSentiment': a.getAnalysisForPlace('Toronto'), 
+			'OxfordSentiment': a.getAnalysisForPlace('Oxford'), 
+			'LondonSentiment': a.getAnalysisForPlace('London'), 
+			'NYCSentiment': a.getAnalysisForPlace('NYC'), 
+			'MargateSentiment': a.getAnalysisForPlace('Margate'), 
+			'TorontoImg': a.getImageForScore(a.getAnalysisForPlace('Toronto')), 
+			'OxfordImg': a.getImageForScore(a.getAnalysisForPlace('Oxford')), 
+			'LondonImg': a.getImageForScore(a.getAnalysisForPlace('London')), 
+			'NYCImg': a.getImageForScore(a.getAnalysisForPlace('NYC')), 
+			'MargateImg': a.getImageForScore(a.getAnalysisForPlace('Margate')), 
 			'sitename': "Twitter Sentiment Worldwide"
 		}
 		path = os.path.join(os.path.dirname(__file__) + '/../templates/', 'index.html')
