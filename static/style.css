@@ -10,6 +10,9 @@ body {
 	text-align: center;
 }
 
+.clear {
+	clear: both;
+}
 .sentiment_block {
 	width: 200px;
 	float:left;
@@ -17,6 +20,12 @@ body {
 
 .sentiment_block {
 	font-size: 1em;
+}
+
+#aggregate_timeline {
+	width: 1000px;
+	height: 400px;
+	margin-top: 30px;
 }
 
 #about {

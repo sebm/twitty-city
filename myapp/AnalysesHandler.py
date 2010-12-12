@@ -14,15 +14,41 @@ from google.appengine.ext import webapp
 from django.utils import simplejson as json
 from models import *
 
-class AnalysesHandler():	
+class AnalysesHandler():
+	places = ['Oxford', 'London', 'NYC', 'Margate', 'Toronto']
+	invalid_place_string = "Please provide a 'place' parameter: Oxford, London, Toronto, NYC or Margate."
+	
+	def getDaysOfAnalysisForPlace(self, myplace, days):		
+		if myplace in self.places:
+			x_days_ago = datetime.now() + timedelta(days=-days)
+			analyses = Analysis.gql('WHERE place = :place AND created_at > :after', 
+													place=myplace, after=x_days_ago )
+			
+			return analyses
+
+	def getGDataForAnalyses(self, analyses):
+		format_strings = {
+			'Toronto': '[new Date(%s, %s, %s, %s, %s), %s, undefined, undefined, undefined, undefined], \n',
+			'NYC': '[new Date(%s, %s, %s, %s, %s), undefined, %s, undefined, undefined, undefined], \n',
+			'Oxford': '[new Date(%s, %s, %s, %s, %s), undefined, undefined, %s, undefined, undefined], \n',
+			'Margate': '[new Date(%s, %s, %s, %s, %s), undefined, undefined, undefined, %s, undefined], \n',
+			'London': '[new Date(%s, %s, %s, %s, %s), undefined, undefined, undefined, undefined, %s], \n'
+		}
+		
+		gdatas = ''
+		for a in analyses:
+			formatString = format_strings.get(a.place)
+							
+			gdatas += formatString	% (a.created_at.year, a.created_at.month-1, a.created_at.day, a.created_at.hour, a.created_at.minute, a.avg_sentiment)
+
+		return gdatas
+		
 	def runAnalysisForPlace(self, myplace, response):
 		
 		bulk_analysis_url = 'http://twittersentiment.appspot.com/api/bulkClassify'
-
-		places = ['Oxford', 'London', 'NYC', 'Margate', 'Toronto']
 		
-		if not myplace in places:
-			response.out.write("Please provide a 'place' parameter: Oxford, London, NYC or Margate.")
+		if not myplace in self.places:
+			response.out.write(self.invalid_place_string)
 		else:
 			# get the last hour's worth of tweets from our DB, for that place.
 			one_hour_ago = datetime.now() + timedelta(hours=-1)

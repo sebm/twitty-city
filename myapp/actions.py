@@ -13,6 +13,7 @@ from models import *
 from GrabTweetsHandler import *
 from GrabAnalysisHandler import *
 from AnalysesHandler import *
+from AnalysisHistoryHandler import *
 
 class IndexHandler(webapp.RequestHandler):
 	def get(self):

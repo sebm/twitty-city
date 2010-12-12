@@ -23,7 +23,8 @@ from myapp.actions import *
 application = webapp.WSGIApplication([
 								('/', IndexHandler),
 								('/grabtweets', GrabTweetsHandler),
-								('/grabanalysis', GrabAnalysisHandler)
+								('/grabanalysis', GrabAnalysisHandler),
+								('/analysishistory', AnalysisHistoryHandler)
 							], debug=True)
 							
 def main():
