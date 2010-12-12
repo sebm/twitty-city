@@ -33,7 +33,14 @@
 		data.addColumn('number', 'London Sentiment');
 		
 		data.addRows([ {{ gdata }} ]);
-		var settings = { 'min': 0, 'max':4, }
+		var settings = { 
+			'min': 0, 
+			'max':4, 
+			'displayZoomButtons':false,
+			'displayDateBarSeparator': false,
+			'displayLegendDots': false,
+			'displayLegendValues': false
+		}
 		var chart = new google.visualization.AnnotatedTimeLine(
 											document.getElementById('aggregate_timeline')
 										);
