@@ -7,47 +7,47 @@
 	<link  href="//fonts.googleapis.com/css?family=Arvo:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" >
 	
 	<link rel="stylesheet" href="static/style.css" type="text/css" media="screen"  charset="utf-8" />
-	<script type="text/javascript">
-
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-11576589-3']);
-	  _gaq.push(['_trackPageview']);
-
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-
-	</script>
 	<script src="/static/script.js" type="text/javascript" charset="utf-8"></script>
 	<script type='text/javascript'>
 		google.load('visualization', '1', {'packages':['annotatedtimeline']});
-		google.setOnLoadCallback(drawChart);
-  
-	function drawChart() {
-		var data = new google.visualization.DataTable();
-		data.addColumn('datetime', 'Time');
-		data.addColumn('number', 'Toronto Sentiment');
-		data.addColumn('number', 'NYC Sentiment');
-		data.addColumn('number', 'Oxford Sentiment');
-		data.addColumn('number', 'Margate Sentiment');
-		data.addColumn('number', 'London Sentiment');
+		google.load('jquery', '1.4.4')
+		google.setOnLoadCallback(init);
 		
-		data.addRows([ {{ gdata }} ]);
-		var settings = { 
-			'min': 0, 
-			'max':4, 
-			'displayZoomButtons':false,
-			'displayDateBarSeparator': false,
-			'displayLegendDots': false,
-			'displayLegendValues': false
+		function init() {
+			drawChart();
+			$('#about').hide();
+			$('#what').click(function() {
+				$('#about').slideToggle(function() {
+					window.location.href = '#about';	
+				});
+				
+			});
 		}
-		var chart = new google.visualization.AnnotatedTimeLine(
-											document.getElementById('aggregate_timeline')
-										);
-		chart.draw(data, settings)
-	}
+
+		function drawChart() {
+			var data = new google.visualization.DataTable();
+			data.addColumn('datetime', 'Time');
+			data.addColumn('number', 'Toronto Sentiment');
+			data.addColumn('number', 'NYC Sentiment');
+			data.addColumn('number', 'Oxford Sentiment');
+			data.addColumn('number', 'Margate Sentiment');
+			data.addColumn('number', 'London Sentiment');
+		
+			data.addRows([ {{ gdata }} ]);
+			var settings = { 
+				'min': 0, 
+				'max':4, 
+				'allowRedraw': true,
+				'displayZoomButtons':false,
+				'displayDateBarSeparator': false,
+				'displayLegendDots': false,
+				'displayLegendValues': false
+			}
+			var chart = new google.visualization.AnnotatedTimeLine(
+												document.getElementById('aggregate_timeline')
+											);
+			chart.draw(data, settings)
+		}
 	
 	</script> 
 </head>
@@ -57,6 +57,7 @@
       <h1>{{ sitename }}</h1>
     </div>
 
+		<h2>So, how are people feeling in:</h2>
 		<div id="toronto_sentiment" class='sentiment_block'>
 			<h2>Toronto</h2>
 			<img src='static/{{ TorontoImg }}'>
@@ -83,15 +84,13 @@
 			<h3>{{ LondonSentiment }}</h3>
 		</div>
 		
-		<div class='clear'>
-			
-		</div>
+		<div class='clear'></div>
+				
+		<div id='aggregate_timeline'></div>
 		
-		<div id='aggregate_timeline' >
-		</div>
+		<h2 id='what'>What's this all about?</h2>
 		
 		<div id='about'>
-		  <h4>About</h4>
 		  <p>
 		    This page uses the <a href='http://twittersentiment.appspot.com/'>Twitter Sentiment</a> API to determine whether tweets from the above five cities are, on average, happy or sad. The scores are between 0 and 4, and are updated every five minutes.
 		  </p>
@@ -106,5 +105,18 @@
 		</div>
 		
   </div>
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-11576589-3']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
 </body>
 </html>
