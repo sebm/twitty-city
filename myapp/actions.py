@@ -34,7 +34,7 @@ class IndexHandler(webapp.RequestHandler):
 			'LondonImg': a.getImageForScore(a.getAnalysisForPlace('London')), 
 			'NYCImg': a.getImageForScore(a.getAnalysisForPlace('NYC')), 
 			'MargateImg': a.getImageForScore(a.getAnalysisForPlace('Margate')), 
-			'sitename': "Twitter Sentiment Worldwide"
+			'sitename': "Twitty City"
 		}
 		path = os.path.join(os.path.dirname(__file__) + '/../templates/', 'index.html')
 			
