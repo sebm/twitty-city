@@ -24,11 +24,11 @@ class IndexHandler(webapp.RequestHandler):
 							
 		template_values = {
 			'gdata': analyses_gdata[0].gdatas,
-			'TorontoSentiment': a.getAnalysisForPlace('Toronto'), 
-			'OxfordSentiment': a.getAnalysisForPlace('Oxford'), 
-			'LondonSentiment': a.getAnalysisForPlace('London'), 
-			'NYCSentiment': a.getAnalysisForPlace('NYC'), 
-			'MargateSentiment': a.getAnalysisForPlace('Margate'), 
+			'TorontoSentiment': "%.2f" % a.getAnalysisForPlace('Toronto'), 
+			'OxfordSentiment': "%.2f" % a.getAnalysisForPlace('Oxford'), 
+			'LondonSentiment': "%.2f" % a.getAnalysisForPlace('London'), 
+			'NYCSentiment': "%.2f" % a.getAnalysisForPlace('NYC'), 
+			'MargateSentiment': "%.2f" %  a.getAnalysisForPlace('Margate'), 
 			'TorontoImg': a.getImageForScore(a.getAnalysisForPlace('Toronto')), 
 			'OxfordImg': a.getImageForScore(a.getAnalysisForPlace('Oxford')), 
 			'LondonImg': a.getImageForScore(a.getAnalysisForPlace('London')), 
