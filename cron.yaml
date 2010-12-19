@@ -8,11 +8,11 @@ cron:
 - description: grab margate tweets
   url: /grabtweets?place=Margate
   schedule: every 5 minutes
-- description: grab nyc tweets
-  url: /grabtweets?place=NYC
+- description: grab york tweets
+  url: /grabtweets?place=York
   schedule: every 5 minutes
-- description: grab toronto tweets
-  url: /grabtweets?place=Toronto
+- description: grab bristol tweets
+  url: /grabtweets?place=Bristol
   schedule: every 5 minutes
 
 - description: grab oxford sentiment
@@ -24,11 +24,11 @@ cron:
 - description: grab margate sentiment
   url: /grabanalysis?place=Margate
   schedule: every 5 minutes
-- description: grab nyc sentiment
-  url: /grabanalysis?place=NYC
+- description: grab York sentiment
+  url: /grabanalysis?place=York
   schedule: every 5 minutes
-- description: grab toronto sentiment
-  url: /grabanalysis?place=Toronto
+- description: grab Bristol sentiment
+  url: /grabanalysis?place=Bristol
   schedule: every 5 minutes
   
 - description: load up the gdatas

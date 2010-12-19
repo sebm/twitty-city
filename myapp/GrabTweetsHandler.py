@@ -16,14 +16,14 @@ class GrabTweetsHandler(webapp.RequestHandler):
 			search_url = 'http://search.twitter.com/search.json?geocode=51.751944%2C-1.257778%2C10km'
 		elif myplace == 'London':
 			search_url = 'http://search.twitter.com/search.json?geocode=51.511676%2C-0.133209%2C10km'
-		elif myplace == 'NYC':
-			search_url = 'http://search.twitter.com/search.json?geocode=40.717711%2C-74.00150%2C10km'
+		elif myplace == 'York':
+			search_url = 'http://search.twitter.com/search.json?geocode=53.958333%2C-1.080278%2C10km'
 		elif myplace == 'Margate':
 			search_url = 'http://search.twitter.com/search.json?geocode=51.382681%2C1.3664245%2C10km'
-		elif myplace == 'Toronto':
-			search_url = 'http://search.twitter.com/search.json?geocode=43.716589%2C-79.340686%2C10km'
+		elif myplace == 'Bristol':
+			search_url = 'http://search.twitter.com/search.json?geocode=51.45%2C-2.583333%2C10km'
 		else:
-			self.response.out.write("Please provide a 'place' parameter: Oxford, London, NYC, Toronto or Margate.")
+			self.response.out.write("Please provide a 'place' parameter: Oxford, London, York, Bristol or Margate.")
 			
 		self.response.out.write('About to access: %s\n\n' % search_url)
 		f = urlfetch.fetch(url=search_url)

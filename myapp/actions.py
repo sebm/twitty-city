@@ -24,15 +24,15 @@ class IndexHandler(webapp.RequestHandler):
 							
 		template_values = {
 			'gdata': analyses_gdata[0].gdatas,
-			'TorontoSentiment': "%.2f" % a.getAnalysisForPlace('Toronto'), 
+			'BristolSentiment': "%.2f" % a.getAnalysisForPlace('Bristol'), 
 			'OxfordSentiment': "%.2f" % a.getAnalysisForPlace('Oxford'), 
 			'LondonSentiment': "%.2f" % a.getAnalysisForPlace('London'), 
-			'NYCSentiment': "%.2f" % a.getAnalysisForPlace('NYC'), 
+			'YorkSentiment': "%.2f" % a.getAnalysisForPlace('York'), 
 			'MargateSentiment': "%.2f" %  a.getAnalysisForPlace('Margate'), 
-			'TorontoImg': a.getImageForScore(a.getAnalysisForPlace('Toronto')), 
+			'BristolImg': a.getImageForScore(a.getAnalysisForPlace('Bristol')), 
 			'OxfordImg': a.getImageForScore(a.getAnalysisForPlace('Oxford')), 
 			'LondonImg': a.getImageForScore(a.getAnalysisForPlace('London')), 
-			'NYCImg': a.getImageForScore(a.getAnalysisForPlace('NYC')), 
+			'YorkImg': a.getImageForScore(a.getAnalysisForPlace('York')), 
 			'MargateImg': a.getImageForScore(a.getAnalysisForPlace('Margate')), 
 			'sitename': "Twitty City"
 		}

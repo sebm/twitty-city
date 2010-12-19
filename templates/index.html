@@ -27,8 +27,8 @@
 		function drawChart() {
 			var data = new google.visualization.DataTable();
 			data.addColumn('datetime', 'Time');
-			data.addColumn('number', 'Toronto Sentiment');
-			data.addColumn('number', 'NYC Sentiment');
+			data.addColumn('number', 'Bristol Sentiment');
+			data.addColumn('number', 'York Sentiment');
 			data.addColumn('number', 'Oxford Sentiment');
 			data.addColumn('number', 'Margate Sentiment');
 			data.addColumn('number', 'London Sentiment');
@@ -55,18 +55,19 @@
   <div id='container'>
     <div id='header'>
       <h1>{{ sitename }}</h1>
+			<h2>A Twitter happiness website for England.</h2>
     </div>
 
 		<h2>So, how are people feeling in:</h2>
-		<div id="toronto_sentiment" class='sentiment_block'>
-			<h2>Toronto</h2>
-			<img src='static/{{ TorontoImg }}'>
-			<h3>{{ TorontoSentiment }}</h3>
+		<div id="bristol_sentiment" class='sentiment_block'>
+			<h2>Bristol</h2>
+			<img src='static/{{ BristolImg }}'>
+			<h3>{{ BristolSentiment }}</h3>
 		</div>
-		<div id="nyc_sentiment" class='sentiment_block'>
-			<h2>NYC</h2>
-			<img src='static/{{ NYCImg }}'>
-			<h3>{{ NYCSentiment }}</h3>
+		<div id="york_sentiment" class='sentiment_block'>
+			<h2>York</h2>
+			<img src='static/{{ YorkImg }}'>
+			<h3>{{ YorkSentiment }}</h3>
 		</div>
 		<div id="oxford_sentiment" class='sentiment_block'>
 			<h2>Oxford</h2>
@@ -78,7 +79,7 @@
 			<img src='static/{{ MargateImg }}'>
 			<h3>{{ MargateSentiment }}</h3>
 		</div>	
-		<div id="toronto_sentiment" class='sentiment_block'>
+		<div id="london_sentiment" class='sentiment_block'>
 			<h2>London</h2>
 			<img src='static/{{ LondonImg }}'>
 			<h3>{{ LondonSentiment }}</h3>
@@ -95,7 +96,7 @@
 		    This page uses the <a href='http://twittersentiment.appspot.com/'>Twitter Sentiment</a> API to determine whether tweets from the above five cities are, on average, happy or sad. The scores are between 0 and 4, and are updated every five minutes.
 		  </p>
 		  <p>
-		    This page was made by <a href='http://blog.motraghi.us'>Sebastian Motraghi</a> during the <a href='http://www.opendataday.org/wiki/Oxford,_UK'>Oxford Open Data Hackathon</a> on December 4th, 2010, and has been intermittently updated since. The source code is available on <a href='https://github.com/sebm/suxford'>GitHub</a>.
+		    This page was made by <a href='http://blog.motraghi.us'>Sebastian Motraghi</a> during the <a href='http://www.opendataday.org/wiki/Oxford,_UK'>Oxford Open Data Hackathon</a> on December 4th, 2010, and has been intermittently updated since. The source code is available on <a href='https://github.com/sebm/twitty-city'>GitHub</a>.
 		  </p>
 		  <h4>Shoutouts</h4>
 		  <p>

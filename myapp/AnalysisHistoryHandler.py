@@ -21,8 +21,8 @@ class AnalysisHistoryHandler(webapp.RequestHandler):
 		
 		a = AnalysesHandler()
 		
-		analyses = a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('Toronto', 7)) + \
-							a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('NYC', 7)) + \
+		analyses = a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('Bristol', 7)) + \
+							a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('York', 7)) + \
 							a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('London', 7)) + \
 							a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('Margate', 7)) + \
 							a.getGDataForAnalyses(a.getDaysOfAnalysisForPlace('Oxford', 7))

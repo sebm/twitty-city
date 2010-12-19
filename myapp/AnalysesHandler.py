@@ -15,8 +15,8 @@ from django.utils import simplejson as json
 from models import *
 
 class AnalysesHandler():
-	places = ['Oxford', 'London', 'NYC', 'Margate', 'Toronto']
-	invalid_place_string = "Please provide a 'place' parameter: Oxford, London, Toronto, NYC or Margate."
+	places = ['Oxford', 'London', 'York', 'Margate', 'Bristol']
+	invalid_place_string = "Please provide a 'place' parameter: Oxford, London, Bristol, York or Margate."
 	
 	def getDaysOfAnalysisForPlace(self, myplace, days):		
 		if myplace in self.places:
@@ -28,8 +28,8 @@ class AnalysesHandler():
 
 	def getGDataForAnalyses(self, analyses):
 		format_strings = {
-			'Toronto': '[new Date(%s, %s, %s, %s, %s), %s, undefined, undefined, undefined, undefined], \n',
-			'NYC': '[new Date(%s, %s, %s, %s, %s), undefined, %s, undefined, undefined, undefined], \n',
+			'Bristol': '[new Date(%s, %s, %s, %s, %s), %s, undefined, undefined, undefined, undefined], \n',
+			'York': '[new Date(%s, %s, %s, %s, %s), undefined, %s, undefined, undefined, undefined], \n',
 			'Oxford': '[new Date(%s, %s, %s, %s, %s), undefined, undefined, %s, undefined, undefined], \n',
 			'Margate': '[new Date(%s, %s, %s, %s, %s), undefined, undefined, undefined, %s, undefined], \n',
 			'London': '[new Date(%s, %s, %s, %s, %s), undefined, undefined, undefined, undefined, %s], \n'
