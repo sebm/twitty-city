@@ -33,4 +33,4 @@ cron:
   
 - description: load up the gdatas
   url: /analysishistory
-  schedule: every day 00:00
+  schedule: every 2 hours
