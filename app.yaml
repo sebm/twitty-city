@@ -15,7 +15,7 @@ handlers:
   script: main.py
   login: admin
 
-- url: /analysishandler
+- url: /analysishistory
   script: main.py
   login: admin
 
