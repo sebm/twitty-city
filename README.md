@@ -1,1 +1,1 @@
-Suxford is a website that compares sentiment information from Twitter for five different cities. http://suxford.appspot.com/
+Twitty City is a website that compares sentiment information from Twitter for five different cities. http://www.twitty-city.co.uk
