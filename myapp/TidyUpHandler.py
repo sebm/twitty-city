@@ -26,9 +26,7 @@ class TidyUpHandler(webapp.RequestHandler):
         counter +=1
         
     elif datatype == "analysis":
-      num_all_analyses = Analysis.all(keys_only=True).count()
       old_analyses = Analysis.gql('WHERE created_at < :before LIMIT 1000', before=one_month_ago )
-      self.response.out.write("There are %s analyses in total<br>" % num_all_analyses)
       for a in old_analyses:
         a.delete()
         counter += 1
