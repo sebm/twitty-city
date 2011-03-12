@@ -14,6 +14,7 @@ from GrabTweetsHandler import *
 from GrabAnalysisHandler import *
 from AnalysesHandler import *
 from AnalysisHistoryHandler import *
+from TidyUpHandler import *
 
 class IndexHandler(webapp.RequestHandler):
 	def get(self):

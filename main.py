@@ -24,7 +24,8 @@ application = webapp.WSGIApplication([
 								('/', IndexHandler),
 								('/grabtweets', GrabTweetsHandler),
 								('/grabanalysis', GrabAnalysisHandler),
-								('/analysishistory', AnalysisHistoryHandler)
+								('/analysishistory', AnalysisHistoryHandler),
+								('/tidyup', TidyUpHandler)
 							], debug=True)
 							
 def main():
