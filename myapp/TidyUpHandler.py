@@ -16,15 +16,15 @@ class TidyUpHandler(webapp.RequestHandler):
   def get(self):
     one_month_ago = datetime.now() + timedelta(days=-30)
 
-    old_tweets = Tweet.gql('WHERE created_at < :before', before=one_month_ago )
+    old_tweets = Tweet.gql('WHERE created_at < :before LIMIT 100', before=one_month_ago )
     for t in old_tweets:
       t.delete()
 
-    old_analyses = Analysis.gql('WHERE created_at < :before', before=one_month_ago )
+    old_analyses = Analysis.gql('WHERE created_at < :before LIMIT 100', before=one_month_ago )
     for a in old_analyses:
       a.delete()
 
-    old_gdatas = AnalysisGData.gql('WHERE created_at < :before', before=one_month_ago )
+    old_gdatas = AnalysisGData.gql('WHERE created_at < :before LIMIT 100', before=one_month_ago )
     for g in old_gdatas:
       g.delete()
       
