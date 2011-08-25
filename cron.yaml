@@ -34,3 +34,7 @@ cron:
 - description: load up the gdatas
   url: /analysishistory
   schedule: every 2 hours
+  
+- description: automatically purge tweets
+  url: /tidyup?datatype=tweet
+  schedule: every 8 minutes
