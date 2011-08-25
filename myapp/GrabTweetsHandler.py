@@ -41,7 +41,6 @@ class GrabTweetsHandler(webapp.RequestHandler):
 					else:
 						self.response.out.write('Adding tweet id #%s to datastore\n' % result['id'])
 						tweet = Tweet(tweet_id = result['id'], 
-							raw_tweet_json = json.dumps(result), 
 							tweet_content = result['text'],
 							place = myplace,
 							created_at = datetime.fromtimestamp(mktime_tz(parsedate_tz(result['created_at'])))
