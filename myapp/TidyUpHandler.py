@@ -32,7 +32,7 @@ class TidyUpHandler(webapp.RequestHandler):
         counter += 1
 
     elif datatype == "gdata":
-      old_gdatas = AnalysisGData.gql('WHERE created_at < :before LIMIT 1000', before=one_month_ago )
+      old_gdatas = AnalysisGData.gql('WHERE created_at < :before LIMIT 50', before=one_month_ago )
       for g in old_gdatas:
         g.delete()
         counter += 1
