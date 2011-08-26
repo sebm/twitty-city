@@ -38,3 +38,11 @@ cron:
 - description: automatically purge tweets
   url: /tidyup?datatype=tweet
   schedule: every 8 minutes
+  
+- description: automatically purge cached gdatas
+  url: /tidyup?datatype=gdata
+  schedule: every 8 minutes
+  
+- description: automatically purge analyses
+  url: /tidyup?datatype=analysis
+  schedule: every 8 minutes
