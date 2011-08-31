@@ -1,35 +1,35 @@
 cron:
 - description: grab oxford tweets
   url: /grabtweets?place=Oxford
-  schedule: every 5 minutes
+  schedule: every 10 minutes
 - description: grab london tweets
   url: /grabtweets?place=London
-  schedule: every 5 minutes
+  schedule: every 10 minutes
 - description: grab margate tweets
   url: /grabtweets?place=Margate
-  schedule: every 5 minutes
+  schedule: every 10 minutes
 - description: grab york tweets
   url: /grabtweets?place=York
-  schedule: every 5 minutes
+  schedule: every 10 minutes
 - description: grab bristol tweets
   url: /grabtweets?place=Bristol
-  schedule: every 5 minutes
+  schedule: every 10 minutes
 
 - description: grab oxford sentiment
   url: /grabanalysis?place=Oxford
-  schedule: every 5 minutes
+  schedule: every 10 minutes
 - description: grab london sentiment
   url: /grabanalysis?place=London
-  schedule: every 5 minutes
+  schedule: every 10 minutes
 - description: grab margate sentiment
   url: /grabanalysis?place=Margate
-  schedule: every 5 minutes
+  schedule: every 10 minutes
 - description: grab York sentiment
   url: /grabanalysis?place=York
-  schedule: every 5 minutes
+  schedule: every 10 minutes
 - description: grab Bristol sentiment
   url: /grabanalysis?place=Bristol
-  schedule: every 5 minutes
+  schedule: every 10 minutes
   
 - description: load up the gdatas
   url: /analysishistory
@@ -37,12 +37,12 @@ cron:
   
 - description: automatically purge tweets
   url: /tidyup?datatype=tweet
-  schedule: every 8 minutes
+  schedule: every 20 minutes
   
 - description: automatically purge cached gdatas
   url: /tidyup?datatype=gdata
-  schedule: every 8 minutes
+  schedule: every 20 minutes
   
 - description: automatically purge analyses
   url: /tidyup?datatype=analysis
-  schedule: every 8 minutes
+  schedule: every 20 minutes
