@@ -1,6 +1,6 @@
 Twitty City
 ===========
-v2.2.2
+v2.2.3
 ----
 [Twitty City][site] is a website that compares sentiment information from [Twitter][twitter] for five different cities. It was created in [Oxford][oxf] for the [Open Data Hack Day][hackday] on 4 Dec 2010.
 
