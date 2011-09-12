@@ -15,24 +15,25 @@ from models import *
 class TidyUpHandler(webapp.RequestHandler):
   def get(self):
     datatype = self.request.get('datatype')
-    one_month_ago = datetime.now() + timedelta(days=-30)
+    #one_month_ago = datetime.now() + timedelta(days=-30)
+    fortnight_ago = datetime.now() + timedelta(days=-14)
     counter = 0
-    self.response.out.write("Looking to delete stuff from before "+ str(one_month_ago) + "<br>")
+    self.response.out.write("Looking to delete stuff from before "+ str(fortnight_ago) + "<br>")
 
     if datatype == "tweet":
-      old_tweets = Tweet.gql('WHERE created_at < :before LIMIT 1000', before=one_month_ago )
+      old_tweets = Tweet.gql('WHERE created_at < :before LIMIT 1000', before=fortnight_ago )
       for t in old_tweets:
         t.delete()
         counter +=1
         
     elif datatype == "analysis":
-      old_analyses = Analysis.gql('WHERE created_at < :before LIMIT 1000', before=one_month_ago )
+      old_analyses = Analysis.gql('WHERE created_at < :before LIMIT 1000', before=fortnight_ago )
       for a in old_analyses:
         a.delete()
         counter += 1
 
     elif datatype == "gdata":
-      old_gdatas = AnalysisGData.gql('WHERE created_at < :before LIMIT 50', before=one_month_ago )
+      old_gdatas = AnalysisGData.gql('WHERE created_at < :before LIMIT 50', before=fortnight_ago )
       for g in old_gdatas:
         g.delete()
         counter += 1
