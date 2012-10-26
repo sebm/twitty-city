@@ -28,18 +28,18 @@ class AnalysesHandler():
 
 	def getGDataForAnalyses(self, analyses):
 		format_strings = {
-			'Bristol': '[new Date(%s, %s, %s, %s, %s), %s, undefined, undefined, undefined, undefined], \n',
-			'York': '[new Date(%s, %s, %s, %s, %s), undefined, %s, undefined, undefined, undefined], \n',
-			'Oxford': '[new Date(%s, %s, %s, %s, %s), undefined, undefined, %s, undefined, undefined], \n',
-			'Margate': '[new Date(%s, %s, %s, %s, %s), undefined, undefined, undefined, %s, undefined], \n',
-			'London': '[new Date(%s, %s, %s, %s, %s), undefined, undefined, undefined, undefined, %s], \n'
+			'Bristol': '[new Date(%s), %s, undefined, undefined, undefined, undefined], \n',
+			'York': '[new Date(%s), undefined, %s, undefined, undefined, undefined], \n',
+			'Oxford': '[new Date(%s), undefined, undefined, %s, undefined, undefined], \n',
+			'Margate': '[new Date(%s), undefined, undefined, undefined, %s, undefined], \n',
+			'London': '[new Date(%s), undefined, undefined, undefined, undefined, %s], \n'
 		}
 		
 		gdatas = ''
 		for a in analyses:
 			formatString = format_strings.get(a.place)
 							
-			gdatas += formatString	% (a.created_at.year, a.created_at.month-1, a.created_at.day, a.created_at.hour, a.created_at.minute, a.avg_sentiment)
+			gdatas += formatString % (a.created_at.strftime('%s000'), a.avg_sentiment)
 
 		return gdatas
 		
