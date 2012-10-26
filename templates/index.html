@@ -10,18 +10,10 @@
 	<script src="/static/script.js" type="text/javascript" charset="utf-8"></script>
 	<script type='text/javascript'>
 		google.load('visualization', '1', {'packages':['annotatedtimeline']});
-		google.load('jquery', '1.4.4')
 		google.setOnLoadCallback(init);
 		
 		function init() {
 			drawChart();
-			$('#about').hide();
-			$('#what').click(function() {
-				$('#about').slideToggle(function() {
-					window.location.href = '#about';	
-				});
-				
-			});
 		}
 
 		function drawChart() {
