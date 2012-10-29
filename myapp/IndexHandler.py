@@ -1,15 +1,13 @@
-import sys
+import os
 
-from email.utils import parsedate_tz, mktime_tz
-from google.appengine.api import urlfetch
-from google.appengine.ext import webapp
-from models import *
+import webapp2
+from models import AnalysisGData
 from jinja2 import Environment, FileSystemLoader
 
 from AnalysesHandler import *
 
 
-class IndexHandler(webapp.RequestHandler):
+class IndexHandler(webapp2.RequestHandler):
     def get(self):
         a = AnalysesHandler()
 

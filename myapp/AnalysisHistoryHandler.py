@@ -1,21 +1,10 @@
-import os
-from datetime import datetime, timedelta
-import logging
-import time
-import csv
-import urllib
-import sys
+from datetime import datetime
 
-from email.utils import parsedate_tz, mktime_tz
-from google.appengine.api import urlfetch
-from google.appengine.ext.webapp import template
-from google.appengine.api import users
-from google.appengine.ext import webapp
-from models import *
+import webapp2
 from AnalysesHandler import *
 
 
-class AnalysisHistoryHandler(webapp.RequestHandler):
+class AnalysisHistoryHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers["Content-Type"] = "text/plain"
 

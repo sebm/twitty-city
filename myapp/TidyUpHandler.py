@@ -1,18 +1,9 @@
-import os
 from datetime import datetime, timedelta
-import logging
-import time
-import csv
-import urllib
-
-from email.utils import parsedate_tz, mktime_tz
-from google.appengine.api import urlfetch
-from google.appengine.ext.webapp import template
-from google.appengine.ext import webapp
-from models import *
+import webapp2
+from models import Tweet, Analysis, AnalysisGData
 
 
-class TidyUpHandler(webapp.RequestHandler):
+class TidyUpHandler(webapp2.RequestHandler):
     def get(self):
         datatype = self.request.get('datatype')
         fortnight_ago = datetime.now() + timedelta(days=-14)

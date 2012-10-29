@@ -1,13 +1,12 @@
-from google.appengine.ext.webapp import template
-from google.appengine.ext import webapp
+import webapp2
 from google.appengine.api import urlfetch
 import json
-from models import *
+from models import Tweet
 from email.utils import parsedate_tz, mktime_tz
 from datetime import datetime
 
 
-class GrabTweetsHandler(webapp.RequestHandler):
+class GrabTweetsHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers["Content-Type"] = "text/plain"
 
