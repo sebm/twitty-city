@@ -21,12 +21,13 @@ from google.appengine.ext import webapp
 from myapp.actions import *
 
 application = webapp.WSGIApplication([
-								('/', IndexHandler),
-								('/grabtweets', GrabTweetsHandler),
-								('/grabanalysis', GrabAnalysisHandler),
-								('/analysishistory', AnalysisHistoryHandler),
-								('/tidyup', TidyUpHandler)
-							], debug=True)
-							
+    ('/', IndexHandler),
+    ('/grabtweets', GrabTweetsHandler),
+    ('/grabanalysis', GrabAnalysisHandler),
+    ('/analysishistory', AnalysisHistoryHandler),
+    ('/tidyup', TidyUpHandler)
+], debug=True)
+
+
 def main():
-	wsgiref.handlers.CGIHandler().run(application)
+    wsgiref.handlers.CGIHandler().run(application)

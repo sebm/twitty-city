@@ -2,7 +2,7 @@ import os
 from datetime import datetime, timedelta
 import logging
 import time
-import csv 
+import csv
 import urllib
 
 from email.utils import parsedate_tz, mktime_tz
@@ -15,9 +15,9 @@ from AnalysesHandler import *
 
 
 class GrabAnalysisHandler(webapp.RequestHandler):
-	def get(self):
-		a = AnalysesHandler()
-		
-		self.response.headers["Content-Type"] = "text/plain"
-		myplace = self.request.get('place')
-		a.runAnalysisForPlace(myplace, self.response)
+    def get(self):
+        a = AnalysesHandler()
+
+        self.response.headers["Content-Type"] = "text/plain"
+        myplace = self.request.get('place')
+        a.runAnalysisForPlace(myplace, self.response)
