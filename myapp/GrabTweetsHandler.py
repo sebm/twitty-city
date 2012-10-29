@@ -1,7 +1,7 @@
 from google.appengine.ext.webapp import template
 from google.appengine.ext import webapp
 from google.appengine.api import urlfetch
-from django.utils import simplejson as json
+import json
 from models import *
 from email.utils import parsedate_tz, mktime_tz
 from datetime import datetime

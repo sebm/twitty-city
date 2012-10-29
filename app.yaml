@@ -1,6 +1,7 @@
 application: suxford-hrd
 version: 2
-runtime: python
+runtime: python27
+threadsafe: no
 api_version: 1
 
 handlers:
@@ -26,3 +27,6 @@ handlers:
 - url: .*
   script: main.py
 
+libraries:
+- name: jinja2
+  version: "2.6"

@@ -6,10 +6,9 @@ import sys
 
 from email.utils import parsedate_tz, mktime_tz
 from google.appengine.api import urlfetch
-from google.appengine.ext.webapp import template
 from google.appengine.ext import webapp
-from django.utils import simplejson as json
 from models import *
+from jinja2 import Environment, FileSystemLoader
 from GrabTweetsHandler import *
 from GrabAnalysisHandler import *
 from AnalysesHandler import *
@@ -37,6 +36,9 @@ class IndexHandler(webapp.RequestHandler):
             'MargateImg': a.getImageForScore(a.getAnalysisForPlace('Margate')),
             'sitename': "Twitty City"
         }
-        path = os.path.join(os.path.dirname(__file__) + '/../templates/', 'index.html')
+        loader = FileSystemLoader(os.path.dirname(__file__) + '/../templates/')
+        env = Environment(loader=loader)
 
-        self.response.out.write(template.render(path, template_values))
+        template = env.get_template('index.html')
+
+        self.response.out.write(template.render(template_values))
