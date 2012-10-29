@@ -15,19 +15,13 @@
 # limitations under the License.
 #
 
-import wsgiref.handlers
-
-from google.appengine.ext import webapp
+import webapp2
 from myapp.actions import *
 
-application = webapp.WSGIApplication([
+app = webapp2.WSGIApplication([
     ('/', IndexHandler),
     ('/grabtweets', GrabTweetsHandler),
     ('/grabanalysis', GrabAnalysisHandler),
     ('/analysishistory', AnalysisHistoryHandler),
     ('/tidyup', TidyUpHandler)
 ], debug=True)
-
-
-def main():
-    wsgiref.handlers.CGIHandler().run(application)
