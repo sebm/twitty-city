@@ -26,11 +26,11 @@ class AnalysesHandler():
 
     def getGDataForAnalyses(self, analyses):
         format_strings = {
-            'Bristol': '[new Date(%s), %s, undefined, undefined, undefined, undefined], \n',
-            'York': '[new Date(%s), undefined, %s, undefined, undefined, undefined], \n',
-            'Oxford': '[new Date(%s), undefined, undefined, %s, undefined, undefined], \n',
-            'Margate': '[new Date(%s), undefined, undefined, undefined, %s, undefined], \n',
-            'London': '[new Date(%s), undefined, undefined, undefined, undefined, %s], \n'
+            'Bristol': '[new Date(%s), %s, , , , u], \n',
+            'York': '[new Date(%s), , %s, , , u], \n',
+            'Oxford': '[new Date(%s), , , %s, , u], \n',
+            'Margate': '[new Date(%s), , , , %s, u], \n',
+            'London': '[new Date(%s), , , , , %s], \n'
         }
 
         gdatas = ''

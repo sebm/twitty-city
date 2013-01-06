@@ -25,7 +25,10 @@ function drawChart() {
   data.addColumn('number', 'Margate Sentiment');
   data.addColumn('number', 'London Sentiment');
 
-  data.addRows([ {{ gdata }} ]);
+  // within this block, 'u' will be undefined.
+  (function(u) {
+    data.addRows([ {{ gdata }} ]);
+  })();
   var settings = { 
     'min': 0, 
     'max':4, 
