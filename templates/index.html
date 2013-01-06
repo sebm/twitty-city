@@ -10,39 +10,6 @@
 <script src="/static/script.js" type="text/javascript" charset="utf-8"></script>
 <script type='text/javascript'>
 google.load('visualization', '1', {'packages':['annotatedtimeline']});
-google.setOnLoadCallback(init);
-
-function init() {
-  drawChart();
-}
-
-function drawChart() {
-  var data = new google.visualization.DataTable();
-  data.addColumn('datetime', 'Time');
-  data.addColumn('number', 'Bristol Sentiment');
-  data.addColumn('number', 'York Sentiment');
-  data.addColumn('number', 'Oxford Sentiment');
-  data.addColumn('number', 'Margate Sentiment');
-  data.addColumn('number', 'London Sentiment');
-
-  // within this block, 'u' will be undefined.
-  (function(u) {
-    data.addRows([ {{ gdata }} ]);
-  })();
-  var settings = { 
-    'min': 0, 
-    'max':4, 
-    'allowRedraw': true,
-    'displayZoomButtons':false,
-    'displayDateBarSeparator': false,
-    'displayLegendDots': false,
-    'displayLegendValues': false
-  }
-  var chart = new google.visualization.AnnotatedTimeLine(
-    document.getElementById('aggregate_timeline')
-  );
-  chart.draw(data, settings)
-}
 
 </script> 
 </head>
@@ -102,6 +69,41 @@ function drawChart() {
 
 </div>
 <script type="text/javascript">
+
+google.setOnLoadCallback(init);
+
+function init() {
+  drawChart();
+}
+
+function drawChart() {
+  var data = new google.visualization.DataTable();
+  data.addColumn('datetime', 'Time');
+  data.addColumn('number', 'Bristol Sentiment');
+  data.addColumn('number', 'York Sentiment');
+  data.addColumn('number', 'Oxford Sentiment');
+  data.addColumn('number', 'Margate Sentiment');
+  data.addColumn('number', 'London Sentiment');
+
+  // within this block, 'u' will be undefined.
+  (function(u) {
+    data.addRows([ {{ gdata }} ]);
+  })();
+  var settings = { 
+    'min': 0, 
+    'max':4, 
+    'allowRedraw': true,
+    'displayZoomButtons':false,
+    'displayDateBarSeparator': false,
+    'displayLegendDots': false,
+    'displayLegendValues': false
+  }
+  var chart = new google.visualization.AnnotatedTimeLine(
+    document.getElementById('aggregate_timeline')
+  );
+  chart.draw(data, settings)
+}
+
 
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-11576589-3']);
